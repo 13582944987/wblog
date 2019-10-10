@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>my</title>
+</head>
+<body>
+<h1>创建内容</h1>
+<form method="post" action="/userinfor/">
+    <p>标题<input type="text" name="blog_title"></p>
+    <p>内容<input type="text" name="blog_text"></p>
+    <p><input type="submit" value="提交"></p>
+
+</form>
+<form method='post' action='/userfile/' enctype='multipart/form-data'>
+	<p>
+		<input type='file' name='img'>
+	</p>
+	<p>
+		<input type='sumbit' value="提交">
+	</p>
+	
+	
+</form>
+<ul>
+    {% for tit in blog %}
+
+    <li>
+          <a>{{ tit.title }}<hr>{{ tit.content }}</a>
+
+    </li>
+
+
+</ul>
+
+    {% endfor %}
+
+
+
+{#{% endfor %}#}
+</body>
+</html>

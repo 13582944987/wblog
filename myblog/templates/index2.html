@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>Complex Layout - jQuery EasyUI Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/js/themes/default/easyui.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/js/themes/icon.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/js/demo/demo.css">
+
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/jquery.easyui.min.js"></script>
+
+</head>
+
+<body>
+	<div class="easyui-layout" style="width:1600px;height:800px;margin:0 auto;top:-10px">
+		<div data-options="region:'north'" style="height:80px;text-align:center;font-size:50px;font-weight:bold">
+		sun 的 学 习 日 志
+		</div>
+		<div data-options="region:'south',split:true" style="height:60px;">
+		<p>添加</p>
+
+		</div>
+		<div data-options="region:'east',split:true" title="工具" style="width:180px;">
+			<ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>
+		</div>
+		<div data-options="region:'west',split:true" title="主目录" style="width:200px;font-weight:bold">
+			<div class="easyui-accordion" data-options="fit:true,border:false">
+                {% for text in blog %}
+                    <!--数据导入-->
+				<div title="{{ text.categorie.types }}" style="padding:10px;">
+
+					<ul style="list-style:none;position:relative;left:-30px;top:-20px;font-size:15px;line-height:25px">
+						<li><a href="/text-{{ text.id }}">{{ text.title }}</a></li>
+
+				</div>
+                {% endfor %}
+
+			</div>
+
+		</div>
+
+		<div data-options="region:'center',title:'日志',iconCls:'icon-ok'">
+			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+				<div title="内容"  style="padding:10px">
+                    {{ blod_conet.content|safe }}
+                </div>
+
+				<div title="详细" style="padding:5px">
+
+					<table class="easyui-datagrid"
+
+							data-options="url:'datagrid_data1.json',method:'get',singleSelect:true,fit:true,fitColumns:true">
+
+
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
